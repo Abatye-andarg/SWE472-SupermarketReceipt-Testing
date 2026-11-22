@@ -1,6 +1,6 @@
-
 plugins {
     id 'java-library'
+    id 'jacoco'
 }
 
 repositories {
@@ -12,14 +12,51 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     testImplementation 'com.approvaltests:approvaltests:12.1.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.1'
 }
 
 group = 'dojo'
 version = '1.0.0-SNAPSHOT'
 
-
-test {
-    useJUnitPlatform()
-    maxHeapSize = '1G'
+jacoco {
+    toolVersion = '0.8.12'
 }
 
+// Default suite: all ISP, graph-coverage and supporting tests.
+// Tests tagged "defect" document known anomalies and are expected to FAIL,
+// so they are excluded here and run separately with ./gradlew defectTest
+test {
+    useJUnitPlatform {
+        excludeTags 'defect'
+    }
+    maxHeapSize = '1G'
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        exceptionFormat = 'full'
+    }
+    finalizedBy jacocoTestReport
+}
+
+tasks.register('defectTest', Test) {
+    description = 'Runs the tests that document known defects (expected to fail).'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'defect'
+    }
+    testLogging {
+        events 'passed', 'failed'
+        exceptionFormat = 'short'
+    }
+    reports.html.outputLocation = layout.buildDirectory.dir('reports/defect-tests')
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+        html.required = true
+    }
+}

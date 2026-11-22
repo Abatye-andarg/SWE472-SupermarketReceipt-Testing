@@ -1,0 +1,30 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :defectTest
+
+Known defects (expected to FAIL) > DEF-02: 3.5 kg at EUR 3.00/kg under 3-for-2 -> expect EUR 7.50 (actual: EUR 6.00, 0.5 kg free) FAILED
+    org.opentest4j.AssertionFailedError at KnownDefectsTest.java:55
+
+Known defects (expected to FAIL) > DEF-01: 10% offer, qty 0 -> expect no discount line (actual: one EUR 0.00 '10.0% off' line) FAILED
+    org.opentest4j.AssertionFailedError at KnownDefectsTest.java:32
+
+2 tests completed, 2 failed
+
+> Task :defectTest FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':defectTest'.
+> There were failing tests. See the report at: file:///home/abatyemandarg/QAA/SupermarketReceipt-Java/build/reports/defect-tests/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 4s
+3 actionable tasks: 1 executed, 2 up-to-date

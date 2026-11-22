@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Supermarket-Receipt,dojo.supermarket.model,Product,30,31,9,1,4,7,6,4,1,4
+Supermarket-Receipt,dojo.supermarket.model,Receipt,0,78,0,4,0,17,0,8,0,6
+Supermarket-Receipt,dojo.supermarket.model,Offer,3,12,0,0,1,5,1,1,1,1
+Supermarket-Receipt,dojo.supermarket.model,SpecialOfferType,0,27,0,0,0,2,0,1,0,1
+Supermarket-Receipt,dojo.supermarket.model,ShoppingCart,5,251,0,26,2,41,1,18,1,5
+Supermarket-Receipt,dojo.supermarket.model,Teller,0,71,0,2,0,17,0,4,0,3
+Supermarket-Receipt,dojo.supermarket.model,Discount,0,21,0,0,0,8,0,4,0,4
+Supermarket-Receipt,dojo.supermarket.model,ReceiptItem,72,27,14,0,8,10,9,5,2,5
+Supermarket-Receipt,dojo.supermarket.model,ProductQuantity,0,15,0,0,0,6,0,3,0,3
+Supermarket-Receipt,dojo.supermarket.model,ProductUnit,0,15,0,0,0,2,0,1,0,1
+Supermarket-Receipt,dojo.supermarket,ReceiptPrinter,202,0,10,0,41,0,14,0,9,0

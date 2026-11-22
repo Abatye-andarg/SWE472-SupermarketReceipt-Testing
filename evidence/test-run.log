@@ -1,0 +1,65 @@
+> Task :clean
+> Task :compileJava
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-07 / P7 (=ISP-11): ...4-6-9-10-11-13-15-16-17-18... | 5 units, 5 for EUR 11 -> EUR 11.00, 1 [du d5] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-10 / P10: loop 2 times | A: 3 units 3-for-2, B: 1 unit no offer -> EUR 9.00, 1 PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-03 / P3 (=ISP-04): ...4-5-9-11-12-13-15-17-18... | 3 units, 3-for-2 -> EUR 6.00, 1 [du d3] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-04 / P4 (=ISP-03): ...4-5-9-11-13-15-17-2... | 2 units, 3-for-2 -> EUR 6.00, 0 [du d1, e27] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-08 / P8 (=ISP-10): ...4-6-9-10-11-13-15-17-2... | 4 units, 5 for EUR 11 -> EUR 12.00, 0 [du d1] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-09 / P9 (=ISP-13): ...4-6-9-11-13-14-15-17-18... | 1 unit, 10% off -> EUR 2.70, 1 [du d4] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-06 / P6 (=ISP-07): ...4-6-7-9-11-13-15-17-2... | 1 unit, 2 for EUR 5 -> EUR 3.00, 0 [covers e12, e27] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-02 / P2 (=ISP-02): 1-2-3-2-19 | 3 units, no offer -> EUR 9.00, 0 [covers e5] PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-01 / P1: 1-2-19 | empty cart, loop 0 times -> EUR 0.00, 0 discounts PASSED
+
+Part 3 - Graph coverage test paths (CFG of handleOffers) > GC-05 / P5 (=ISP-08): ...4-6-7-8-9-11-13-15-17-18... | 2 units, 2 for EUR 5 -> EUR 5.00, 1 [du d2] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-01: qty=0, offer=NONE -> total EUR 0.00, discounts=0 [Q1 G1 M1 T1] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-02: qty=3, offer=NONE -> total EUR 9.00, discounts=0 [Q4 G2 M1 T1] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-03: qty=2, offer=THREE_FOR_TWO -> total EUR 6.00, discounts=0 [Q3 G3 M2 T4 (below)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-04: qty=3, offer=THREE_FOR_TWO -> total EUR 6.00, discounts=1 [Q4 G2 M2 T4 (at)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-05: qty=4, offer=THREE_FOR_TWO -> total EUR 9.00, discounts=1 [Q5 G3 M2 T4 (above)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-06: qty=6, offer=THREE_FOR_TWO -> total EUR 12.00, discounts=1 [Q7 G2 M2 T4 (two bundles)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-07: qty=1, offer=TWO_FOR_AMOUNT:5.00 -> total EUR 3.00, discounts=0 [Q2 G3 M3 T3 (below)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-08: qty=2, offer=TWO_FOR_AMOUNT:5.00 -> total EUR 5.00, discounts=1 [Q3 G3 M3 T3 (at)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-09: qty=3, offer=TWO_FOR_AMOUNT:5.00 -> total EUR 8.00, discounts=1 [Q4 G2 M3 T3 (above)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-10: qty=4, offer=FIVE_FOR_AMOUNT:11.00 -> total EUR 12.00, discounts=0 [Q5 G3 M3 T5 (below)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-11: qty=5, offer=FIVE_FOR_AMOUNT:11.00 -> total EUR 11.00, discounts=1 [Q6 G3 M3 T5 (at)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-12: qty=6, offer=FIVE_FOR_AMOUNT:11.00 -> total EUR 14.00, discounts=1 [Q7 G2 M3 T5 (above)] PASSED
+
+Part 2 - ISP test cases (Teller.checksOutArticlesFrom) > ispTestCase(String, double, String, double, int, String, String) > ISP-13: qty=1, offer=TEN_PERCENT:10 -> total EUR 2.70, discounts=1 [Q2 G3 M4 T2] PASSED
+
+SupermarketTest > tenPercentDiscount() PASSED
+
+Supplementary - cart aggregation > SUP-01: same product added twice (2 + 1) under 3-for-2 -> combined qty 3 -> EUR 6.00, 1 discount PASSED
+
+> Task :jacocoTestReport
+
+BUILD SUCCESSFUL in 7s
+5 actionable tasks: 5 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.4.1/userguide/configuration_cache_enabling.html
