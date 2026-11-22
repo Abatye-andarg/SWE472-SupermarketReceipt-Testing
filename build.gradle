@@ -22,6 +22,20 @@ jacoco {
     toolVersion = '0.8.12'
 }
 
+
+// Print a one-line summary at the end of a test run (e.g. "RESULT: 25 tests, 25 passed, 0 failed, 0 skipped")
+class SummaryListener implements TestListener {
+    void beforeSuite(TestDescriptor d) {}
+    void beforeTest(TestDescriptor d) {}
+    void afterTest(TestDescriptor d, TestResult r) {}
+    void afterSuite(TestDescriptor d, TestResult r) {
+        if (d.parent == null) {
+            println "\n================ RESULT: ${r.testCount} tests, ${r.successfulTestCount} passed, " +
+                    "${r.failedTestCount} failed, ${r.skippedTestCount} skipped ================"
+        }
+    }
+}
+
 // Default suite: all ISP, graph-coverage and supporting tests.
 // Tests tagged "defect" document known anomalies and are expected to FAIL,
 // so they are excluded here and run separately with ./gradlew defectTest
@@ -34,6 +48,7 @@ test {
         events 'passed', 'failed', 'skipped'
         exceptionFormat = 'full'
     }
+    addTestListener(new SummaryListener())
     finalizedBy jacocoTestReport
 }
 
@@ -49,6 +64,7 @@ tasks.register('defectTest', Test) {
         events 'passed', 'failed'
         exceptionFormat = 'short'
     }
+    addTestListener(new SummaryListener())
     reports.html.outputLocation = layout.buildDirectory.dir('reports/defect-tests')
 }
 

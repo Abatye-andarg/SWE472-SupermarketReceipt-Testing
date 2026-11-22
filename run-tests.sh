@@ -1,14 +1,27 @@
 #!/usr/bin/env bash
-# SWE 472 - live demo script (Student 3). Requires JDK 17+.
+# SWE 472 - live demo script. Requires JDK 17+.
+# Usage: ./run-tests.sh            run everything and open the HTML reports in the browser
+#        ./run-tests.sh --no-open  run everything, terminal output only
 set -u
 cd "$(dirname "$0")"
+
 echo "=== 1) Main suite: ISP + graph coverage + supplementary tests (with JaCoCo) ==="
 ./gradlew clean test --console=plain
 echo
 echo "=== 2) Known-defect tests (these are EXPECTED to fail) ==="
 ./gradlew defectTest --console=plain || true
+
+TESTS=build/reports/tests/test/index.html
+DEFECTS=build/reports/defect-tests/index.html
+COVERAGE=build/reports/jacoco/test/html/index.html
 echo
 echo "Reports:"
-echo "  Tests   : build/reports/tests/test/index.html"
-echo "  Defects : build/reports/defect-tests/index.html"
-echo "  Coverage: build/reports/jacoco/test/html/index.html"
+echo "  Tests   : $TESTS"
+echo "  Defects : $DEFECTS"
+echo "  Coverage: $COVERAGE"
+
+if [ "${1:-}" != "--no-open" ]; then
+  for r in "$TESTS" "$DEFECTS" "$COVERAGE"; do
+    xdg-open "$r" >/dev/null 2>&1 || open "$r" >/dev/null 2>&1 || true
+  done
+fi
