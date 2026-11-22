@@ -5,7 +5,8 @@ Framework: JUnit 5.8 on Gradle 9.4.1 (wrapper), JDK 21. Coverage: JaCoCo 0.8.12.
 
 ## Run
 ```
-./run-tests.sh                 # everything, for the live demo
+./run-tests.sh                 # everything, then opens the HTML reports (live demo)
+./show-reports.sh              # re-open the reports of the last run (served on http://127.0.0.1)
 ./gradlew test                 # main suite + JaCoCo report
 ./gradlew defectTest           # defect tests (expected to FAIL)
 ```

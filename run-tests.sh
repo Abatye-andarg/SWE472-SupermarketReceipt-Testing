@@ -21,7 +21,6 @@ echo "  Defects : $DEFECTS"
 echo "  Coverage: $COVERAGE"
 
 if [ "${1:-}" != "--no-open" ]; then
-  for r in "$TESTS" "$DEFECTS" "$COVERAGE"; do
-    xdg-open "$r" >/dev/null 2>&1 || open "$r" >/dev/null 2>&1 || true
-  done
+  echo
+  ./show-reports.sh
 fi
